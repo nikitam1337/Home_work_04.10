@@ -3,44 +3,56 @@
 
 Console.Clear();
 
-int number;
+int userInput;
+
 while (true)
 {
     Console.Write("Введите число: ");
-    if (int.TryParse(Console.ReadLine(), out number))
+    if (int.TryParse(Console.ReadLine(), out userInput))
         break;
     Console.WriteLine($"Ошибка ввода!");
 }
 
-int x1 = 100;
-int x2 = 1000;
-int n = 10;
+int userNumber;
+
 while (true)
 {
-    if (-100 < number && number < 100)
+    if (userInput == 0)
     {
-        Console.WriteLine($"{number} -> третьей цифры нет");
+        Console.WriteLine("Третьей цифры нет");
         break;
     }
-    
 
-    if (x1 <= number && number < x2)
+    if (userInput< 0)
     {
-        int num3 = number % n;
-        Console.WriteLine($"{number} -> {num3}");
-        break;
+        userNumber = userInput * -1;
+        int num = Convert.ToInt32(userNumber);
+        string numtext = Convert.ToString(num);
+        if (numtext.Length > 2)
+        {
+            Console.WriteLine($"{userInput} -> {numtext[2]}");
+            break;
+        }
+        else
+        {
+            Console.WriteLine($"{userInput} -> третьей цифры нет");
+            break;
+        }
     }
-    else
-    {
 
+    if (userInput > 0)
+    {
+        int num = Convert.ToInt32(userInput);
+        string numtext = Convert.ToString(num);
+        if (numtext.Length > 2)
+        {
+            Console.WriteLine($"{userInput} -> {numtext[2]}");
+            break;
+        }
+        else
+        {
+            Console.WriteLine($"{userInput} -> третьей цифры нет");
+            break;
+        }
     }
 }
-
-// if // ввести х1 и х2 и умножать их на 10, после каждой проверки, если она не выполнилась и првоерять заново
-//break;
-
-
-
-
-//Math.Pow (число, степень)
-//double nam = Math.Pow (10, 2);
